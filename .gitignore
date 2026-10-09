@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+.python-version
+
+# 测试 / 覆盖率
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 项目专属：模型权重与数据（体积大，不入库）
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.onnx
+checkpoints/
+artifacts/
+models_pretrained/
+datasets/
+
+# 密态相关产物：密钥/密文不可进仓库
+keys/
+*.key
+*.ct
+*.pk
+*.sk
+
+# 日志与本地配置
+logs/
+*.log
+*.local.yaml
+.env
+.env.*
+
+# 系统文件
+.DS_Store
+Thumbs.db

@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fhellm"
+version = "0.1.0"
+description = "FHELLM: 大模型密态推理（HE-based confidential LLM inference）"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "fengjiyuan", email = "fengjy1215@gmail.com" }]
+
+dependencies = [
+    "numpy>=1.24",
+    "torch>=2.1",
+    "transformers>=4.40",
+    "tenseal>=0.3.0",        # Microsoft SEAL 的 Python 封装，提供 CKKS/BFV
+    "pyyaml>=6.0",
+    "tqdm>=4.65",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "ruff>=0.1",
+    "ipython>=8.12",
+]
+viz = ["matplotlib>=3.7", "seaborn>=0.12"]
+
+[project.scripts]
+fhellm = "fhellm.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q"

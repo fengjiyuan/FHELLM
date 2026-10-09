@@ -1,0 +1,20 @@
+# FHELLM 默认配置
+# 用法：from fhellm.utils import load_config; load_config("configs/default.yaml")
+
+he:
+  scheme: ckks          # ckks | bfv
+  poly_modulus_degree: 8192
+  coeff_mod_bit_sizes: [60, 40, 40, 60]
+  global_scale: 65536   # 2^16
+
+model:
+  name: gpt2-medium      # HuggingFace 模型标识，按需替换
+  quantize: int8        # int8 | int4 | none
+
+engine:
+  device: cpu           # 密态计算通常仅 CPU
+  batch_size: 1
+
+infer:
+  max_new_tokens: 64
+  do_sample: false
